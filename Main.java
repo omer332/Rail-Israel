@@ -13,6 +13,7 @@ do {
 	System.out.println("1 - Entering ride information");
 	System.out.println("2 - Summary of the rides that has been sorted by the leaving time");
 	System.out.println("9 - Exit");
+	System.out.println("lilach");
 	int question = scan.nextInt();
 	switch (question) {
 	case 1:
