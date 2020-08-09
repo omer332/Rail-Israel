@@ -1,3 +1,4 @@
+package sprint1;
 
 public class Ride {
 
@@ -5,7 +6,7 @@ public class Ride {
 	private String destination;
 	private String leavingTime;
 	private String arrivalTime;
-	private int[] sort = new int[2];
+	
 
 	public static int idGenerator = 0;
 	private int rideNumber;
@@ -16,7 +17,7 @@ public class Ride {
 		this.leavingTime = leavingTime;
 		this.arrivalTime = arrivalTime;
 		rideNumber = idGenerator++;
-		setSort(leavingTime);
+	
 	}
 
 	public String getOrigin() {
@@ -39,15 +40,25 @@ public class Ride {
 		return rideNumber;
 	}
 
-	private void setSort(String leavingTime) {
-		String[] split = leavingTime.split(":");
-		sort[0] = Integer.parseInt(split[0]);// Hour
-		sort[1] = Integer.parseInt(split[1]);// Minute
+	public int getHours() {
+		int[] sort = new int[2];
+		String[] split = getLeavingTime().split(":");
+		return sort[0] = Integer.parseInt(split[0]);// Hour
 	}
+	
+	public int getMinutes() {
+		int[] sort = new int[2];
+		String[] split = getLeavingTime().split(":");
+		return sort[1] = Integer.parseInt(split[1]);// Minute
+		
+	}
+	
 
 	@Override
 	public String toString() {
 		return origin + "," + leavingTime + "," + destination + "," + arrivalTime;
 	}
+
+
 
 }
