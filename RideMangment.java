@@ -1,4 +1,3 @@
-package sprint1;
 
 import java.util.ArrayList;
 
@@ -6,6 +5,10 @@ public class RideMangment {
 
 	ArrayList<Ride> arrRide = new ArrayList<Ride>();
 
+
+	public RideMangment(ArrayList<Ride> arrRide) {
+		this.arrRide = arrRide;
+	}
 
 	public void sortTime() {
 		for (int i = 0; i < arrRide.size()-1; i++) {
