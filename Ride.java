@@ -1,4 +1,3 @@
-package sprint1;
 
 public class Ride {
 
@@ -42,13 +41,13 @@ public class Ride {
 
 	public int getHours() {
 		int[] sort = new int[2];
-		String[] split = getLeavingTime().split(":");
+		String[] split = leavingTime.split(":");
 		return sort[0] = Integer.parseInt(split[0]);// Hour
 	}
 	
 	public int getMinutes() {
 		int[] sort = new int[2];
-		String[] split = getLeavingTime().split(":");
+		String[] split = leavingTime.split(":");
 		return sort[1] = Integer.parseInt(split[1]);// Minute
 		
 	}
