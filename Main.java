@@ -1,31 +1,29 @@
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class main {
 	public static void sortTime(ArrayList<Ride> arrRide) {
 		for (int i = 0; i < arrRide.size()-1; i++) {
 			if (arrRide.get(i).getHours()>arrRide.get(i+1).getHours()) 
-				swap (arrRide.get(i), arrRide.get(i+1));
+				swap (arrRide, i, i+1);
 			if (arrRide.get(i).getHours()==arrRide.get(i+1).getHours()) 
 				if (arrRide.get(i).getMinutes()>arrRide.get(i+1).getMinutes())
-					swap(arrRide.get(i), arrRide.get(i+1));
+					swap(arrRide, i, i+1);
 		}
 	}
 
-	public static void swap (Ride ride1, Ride ride2) {
-		Ride temp = ride1;
-		ride1 = ride2;
-		ride2 = temp;
+	public static void swap (ArrayList<Ride> arrRide ,int i, int j) {
+		Ride temp = arrRide.get(i);
+		arrRide.set(i, arrRide.get(j));
+		arrRide.set(j, temp);
 	}
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		ArrayList<Ride> rideArr = new ArrayList<Ride>();
 		boolean ok = true;
-		Ride a = new Ride("Tel aviv", "Jerusalem", "13:00", "14:00");
-		Ride b = new Ride("Jerusalem", "Haifa", "9:00", "10:00");
-		rideArr.add(a);
-		rideArr.add(b);
+		
 		do {
 			System.out.println("Hello and welcome to the program!");
 			System.out.println("Please choose from the following:");
@@ -49,10 +47,10 @@ public class Main {
 				System.out.println("\n Welcome Back! \n");
 				break;
 			case 2:
-sortTime(rideArr);
-System.out.println(rideArr.toString());
-System.out.println("\n Welcome Back! \n");
-break;
+				sortTime(rideArr);
+				System.out.println(rideArr.toString());
+				System.out.println("\n Welcome Back! \n");
+				break;
 			case 9:
 				System.out.println("Thank your for using the program! /n This program was made by ⒸOmerSⒸ && ⒸLilachLⒸ");
 				ok = false;
