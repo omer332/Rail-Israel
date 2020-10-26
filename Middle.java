@@ -11,6 +11,9 @@ public Middle(String station, String leavingTime) {
 	this.leavingTime = leavingTime;
 }
 
+	
+	
+	
 public String getStation() {
 	return station;
 }
