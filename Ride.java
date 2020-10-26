@@ -1,26 +1,34 @@
+package classes;
 
-public class Ride {
+import interfaces.StringToIntTime;
+
+public class Ride implements StringToIntTime {
 
 	private String origin;
 	private String destination;
 	private String leavingTime;
 	private String arrivalTime;
-	
+	private Middle[] stationArr;
 
 	public static int idGenerator = 0;
 	private int rideNumber;
 
-	public Ride(String origin, String destination, String leavingTime, String arrivalTime) {
+	public Ride(String origin, String destination, String leavingTime, String arrivalTime, Middle[] stationArr) {
 		this.origin = origin;
 		this.destination = destination;
 		this.leavingTime = leavingTime;
 		this.arrivalTime = arrivalTime;
+		this.stationArr = stationArr;
 		rideNumber = idGenerator++;
 	
 	}
 
 	public String getOrigin() {
 		return origin;
+	}
+
+	public void setOrigin(String origin) {
+		this.origin = origin;
 	}
 
 	public String getDestination() {
@@ -39,6 +47,10 @@ public class Ride {
 		return rideNumber;
 	}
 
+	public Middle[] getStationArr() {
+		return stationArr;
+	}
+
 	public int getHours() {
 		int[] sort = new int[2];
 		String[] split = leavingTime.split(":");
@@ -55,7 +67,12 @@ public class Ride {
 
 	@Override
 	public String toString() {
-		return origin + "," + leavingTime + "," + destination + "," + arrivalTime;
+		String back = origin + "," + leavingTime + "," + destination + "," + arrivalTime + "\n";
+		for (int i = 0; i < stationArr.length; i++) {
+			if(stationArr[i] != null)
+				back += " middle # " + (i+1) + stationArr[i].toString() + "\n";
+		}
+		return back;
 	}
 
 
