@@ -1,5 +1,6 @@
 package classes;
 
+/*Omer Sananes & Lilach Laniado*/
 import interfaces.StringToIntTime;
 
 public class Ride implements StringToIntTime {
@@ -10,17 +11,31 @@ public class Ride implements StringToIntTime {
 	private String arrivalTime;
 	private Middle[] stationArr;
 
-	public static int idGenerator = 0;
-	private int rideNumber;
-
 	public Ride(String origin, String destination, String leavingTime, String arrivalTime, Middle[] stationArr) {
 		this.origin = origin;
 		this.destination = destination;
 		this.leavingTime = leavingTime;
 		this.arrivalTime = arrivalTime;
 		this.stationArr = stationArr;
-		rideNumber = idGenerator++;
-	
+	}
+
+	public Ride(String origin, String destination, String leavingTime, String arrivalTime) {
+		this.origin = origin;
+		this.destination = destination;
+		this.leavingTime = leavingTime;
+		this.arrivalTime = arrivalTime;
+	}
+
+	public Ride(String str) {
+		String rideStr[] = str.split(",");
+		this.origin = rideStr[0];
+		this.leavingTime = rideStr[1];
+		this.destination = rideStr[2];
+		this.arrivalTime = rideStr[3];
+	}
+
+	public void addMiddleToAnExistedRide(Ride rd) {
+
 	}
 
 	public String getOrigin() {
@@ -43,12 +58,12 @@ public class Ride implements StringToIntTime {
 		return arrivalTime;
 	}
 
-	public int getrideNumber() {
-		return rideNumber;
-	}
-
 	public Middle[] getStationArr() {
 		return stationArr;
+	}
+
+	public void setStationArr(Middle[] stationArr) {
+		this.stationArr = stationArr;
 	}
 
 	public int getHours() {
@@ -56,25 +71,26 @@ public class Ride implements StringToIntTime {
 		String[] split = leavingTime.split(":");
 		return sort[0] = Integer.parseInt(split[0]);// Hour
 	}
-	
+
 	public int getMinutes() {
 		int[] sort = new int[2];
 		String[] split = leavingTime.split(":");
 		return sort[1] = Integer.parseInt(split[1]);// Minute
-		
+
 	}
-	
 
 	@Override
 	public String toString() {
-		String back = origin + "," + leavingTime + "," + destination + "," + arrivalTime + "\n";
-		for (int i = 0; i < stationArr.length; i++) {
-			if(stationArr[i] != null)
-				back += " middle # " + (i+1) + stationArr[i].toString() + "\n";
-		}
-		return back;
+		StringBuffer sb = new StringBuffer();
+		sb.append(origin + "," + leavingTime + "," + destination + "," + arrivalTime + "\n");
+		if (stationArr != null) {
+			for (int i = 0; i < stationArr.length; i++) {
+				if (stationArr[i] != null)
+					sb.append("middle # " + (i + 1) + stationArr[i].toString() + "\n");
+			}
+		} else
+			sb.append("Direct Train\n");
+		return sb.toString();
 	}
-
-
 
 }
