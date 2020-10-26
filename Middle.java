@@ -1,5 +1,6 @@
 package classes;
 
+/*Omer Sananes & Lilach Laniado*/
 import interfaces.StringToIntTime;
 
 public class Middle implements StringToIntTime {
@@ -12,10 +13,10 @@ public class Middle implements StringToIntTime {
 	}
 
 	public Middle(String str) {
-String[] midArr = str.split("-");
-String tempStation = midArr[1].replace(" leaving at", "");
-this.station = tempStation.trim();
-this.leavingTime = midArr[2].trim();
+		String[] midArr = str.split("-");
+		String tempStation = midArr[1].replace(" leaving at", "");
+		this.station = tempStation.trim();
+		this.leavingTime = midArr[2].trim();
 	}
 
 	public String getStation() {
