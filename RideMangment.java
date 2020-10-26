@@ -1,5 +1,6 @@
 package classes;
 
+/*Omer Sananes & Lilach Laniado*/
 import java.util.ArrayList;
 
 public class RideMangment {
@@ -18,14 +19,14 @@ public class RideMangment {
 			if (arrRide.get(i).getOrigin().equals(origin) && arrRide.get(i).getDestination().equals(destination)) {
 				if (arrRide.get(i).getHours() >= hours && arrRide.get(i).getMinutes() >= minutes) {
 					for (int j = 0; j < rideArr.length; j++) {
-						if(rideArr[j] == null) {
+						if (rideArr[j] == null) {
 							rideArr[j] = arrRide.get(i);
-						break;
+							break;
 						}
 					}
 				}
 			}
-
+			if (arrRide.get(i).getStationArr() != null) {
 				if (arrRide.get(i).getStationArr().length > 0) {
 					for (int k = 0; k < arrRide.get(i).getStationArr().length; k++) {
 						if ((arrRide.get(i).getStationArr()[k].getStation().equals(origin)
@@ -35,37 +36,38 @@ public class RideMangment {
 							if (arrRide.get(i).getStationArr()[k].getHours() >= hours
 									&& arrRide.get(i).getStationArr()[k].getMinutes() >= minutes)
 								for (int j = 0; j < rideArr.length; j++) {
-									if(rideArr[j] == null) {
+									if (rideArr[j] == null) {
 										rideArr[j] = arrRide.get(i);
-									break;
+										break;
 									}
 								}
 						}
-							if (arrRide.get(i).getStationArr()[k].getStation().equals(origin)) {
-								for (int l = 0; l < arrRide.get(i).getStationArr().length; l++) {
-									if (arrRide.get(i).getStationArr()[l].getStation().equals(destination))
-										if (arrRide.get(i).getStationArr()[k].getHours() >= hours
-										&& arrRide.get(i).getStationArr()[k].getMinutes() >= minutes)
-											for (int j = 0; j < rideArr.length; j++) {
-												if(rideArr[j] == null) {
-													rideArr[j] = arrRide.get(i);
+						if (arrRide.get(i).getStationArr()[k].getStation().equals(origin)) {
+							for (int l = 0; l < arrRide.get(i).getStationArr().length; l++) {
+								if (arrRide.get(i).getStationArr()[l].getStation().equals(destination))
+									if (arrRide.get(i).getStationArr()[k].getHours() >= hours
+											&& arrRide.get(i).getStationArr()[k].getMinutes() >= minutes)
+										for (int j = 0; j < rideArr.length; j++) {
+											if (rideArr[j] == null) {
+												rideArr[j] = arrRide.get(i);
 												break;
-												}
 											}
-								}
+										}
 							}
-					}
-				}
 						}
-				if (rideArr[0] == null)
-					return "NO RIDES MATCHES";
-				else {
-					for (int j = 0; j < rideArr.length; j++) {
-						if (rideArr[j] != null)
-							result += rideArr[j].toString();
 					}
 				}
-				return result;
-
 			}
 		}
+		if (rideArr[0] == null)
+			return "NO RIDES MATCHES";
+		else {
+			for (int j = 0; j < rideArr.length; j++) {
+				if (rideArr[j] != null)
+					result += rideArr[j].toString();
+			}
+		}
+		return result;
+
+	}
+}
