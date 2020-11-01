@@ -1,0 +1,11 @@
+haifa,13:30,beer sheva,17:00
+ middle # 1 middle station- tel aviv leaving at- 15:00
+
+ middle # 2 middle station- ashkelon leaving at- 16:00
+
+tel aviv,14:30,jerusalem,16:00
+ middle # 1 middle station- beer sheva leaving at- 15:00
+
+tel aviv,14:50,beer sheva,17:00
+ middle # 1 middle station- sderot leaving at- 15:30
+
