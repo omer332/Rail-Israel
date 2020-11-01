@@ -46,3 +46,4 @@ public class Middle implements StringToIntTime {
 	}
 
 }
+
