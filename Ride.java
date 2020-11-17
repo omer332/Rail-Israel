@@ -11,6 +11,7 @@ public class Ride implements StringToIntTime {
 	private String arrivalTime;
 	private Middle[] stationArr;
 
+	// Contractor for stop stations
 	public Ride(String origin, String destination, String leavingTime, String arrivalTime, Middle[] stationArr) {
 		this.origin = origin;
 		this.destination = destination;
@@ -18,6 +19,7 @@ public class Ride implements StringToIntTime {
 		this.arrivalTime = arrivalTime;
 		this.stationArr = stationArr;
 	}
+	// Contractor for direct trains
 
 	public Ride(String origin, String destination, String leavingTime, String arrivalTime) {
 		this.origin = origin;
@@ -26,6 +28,7 @@ public class Ride implements StringToIntTime {
 		this.arrivalTime = arrivalTime;
 	}
 
+	// Contractor for match
 	public Ride(String str) {
 		String rideStr[] = str.split(",");
 		this.origin = rideStr[0];
@@ -38,12 +41,9 @@ public class Ride implements StringToIntTime {
 
 	}
 
+	// getters
 	public String getOrigin() {
 		return origin;
-	}
-
-	public void setOrigin(String origin) {
-		this.origin = origin;
 	}
 
 	public String getDestination() {
@@ -62,8 +62,17 @@ public class Ride implements StringToIntTime {
 		return stationArr;
 	}
 
+	// setters
 	public void setStationArr(Middle[] stationArr) {
 		this.stationArr = stationArr;
+	}
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+
+	public void setOrigin(String origin) {
+		this.origin = origin;
 	}
 
 	public int getHours() {
@@ -79,14 +88,16 @@ public class Ride implements StringToIntTime {
 
 	}
 
+	// toString
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append(origin + "," + leavingTime + "," + destination + "," + arrivalTime + "\n");
+		sb.append(origin + "," + leavingTime + "," + destination + "," + arrivalTime);
+		sb.append(System.lineSeparator());
 		if (stationArr != null) {
 			for (int i = 0; i < stationArr.length; i++) {
 				if (stationArr[i] != null)
-					sb.append("middle # " + (i + 1) + stationArr[i].toString() + "\n");
+					sb.append("middle # " + (i + 1) + stationArr[i].toString());
 			}
 		} else
 			sb.append("Direct Train\n");
