@@ -7,11 +7,13 @@ public class Middle implements StringToIntTime {
 	private String station;
 	private String leavingTime;
 
+	// constructor for program
 	public Middle(String station, String leavingTime) {
 		this.station = station;
 		this.leavingTime = leavingTime;
 	}
 
+	// constructor for match
 	public Middle(String str) {
 		String[] midArr = str.split("-");
 		String tempStation = midArr[1].replace(" leaving at", "");
@@ -19,6 +21,12 @@ public class Middle implements StringToIntTime {
 		this.leavingTime = midArr[2].trim();
 	}
 
+	// setter
+	public void setStation(String station) {
+		this.station = station;
+	}
+
+	// getters
 	public String getStation() {
 		return station;
 	}
@@ -40,6 +48,7 @@ public class Middle implements StringToIntTime {
 
 	}
 
+	// toString
 	@Override
 	public String toString() {
 		return " middle station- " + station + " leaving at- " + leavingTime + "\n";
